@@ -8,7 +8,7 @@ const Meteo = ({lat, long}) => {
   const [meteoData, setMeteoData] = useState(null);
   const [meteoIcon, setMeteoIcon] = useState(null);
 
-
+  
   useEffect(() => {
     const fetchMeteoData = () => {
       fetch(
