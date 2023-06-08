@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import Meteo from './components/meteo';
 import * as Location from 'expo-location';
 import React, { useState, useEffect } from 'react';
@@ -29,7 +29,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      {latitude && longitude && <Meteo lat={latitude} long={longitude} />}
+      {latitude && longitude && <Meteo lat={latitude} long={longitude} /> ? <Meteo lat={latitude} long={longitude} /> : <ActivityIndicator size="large" color="#c8a2c8" />}
       {errorMsg && <Text>{errorMsg}</Text>}
     </View>
   );
@@ -38,9 +38,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'lightyellow'
+    backgroundColor: '#e6e6fa'
   },
 });
